@@ -19,7 +19,6 @@ website:   	http://www.themessoft.com/
 #thm-slideshow {
 	border: none;
 	padding: 0;
-	margin-top: 68px;
 	font-family: 'Rubik', sans-serif;
 }
 #thm-slideshow .container {
@@ -577,7 +576,7 @@ background:#e31837
 
  @media only screen and (min-width: 480px) and (max-width: 767px) {
 	 #thm-slideshow {margin-top:20px}
-	 
+
 #rev_slider_4_wrapper .info {width:70%!important}
 .tp-caption.ExtraLargeTitle span {font-size:14px!important; line-height:auto!important; }
 .tp-caption.Title {font-size:14px!important; white-space:pre-wrap!important; line-height:17px!important; margin-top:5px!important}

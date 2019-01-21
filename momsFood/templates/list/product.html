@@ -1,0 +1,162 @@
+{% extends "masterapp\masterpage.html" %}
+
+{% block up %}
+<section class="main-container col2-left-layout bounceInUp animated">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-sm-push-3">
+        <article class="col-main">
+          <h2 class="page-heading">
+            <span class="page-heading-title">{{product}}</span>
+          </h2>
+          <div class="display-product-option">
+            <div class="pager hidden-xs">
+              <!-- <div class="pages">
+                <ul class="pagination">
+                  <li><a href="#">«</a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div> -->
+            </div>
+          </div>
+          <div class="category-products">
+            <ol class="products-list" id="products-list">
+              {% for menuitem in menu.menu %}
+              {% if menuitem.Category == product %}
+              {% for sub in subcategory.subcategory %}
+              {% if menuitem.Category == sub.Category|stringformat:"s" %}
+              {% for i in item.item %}
+              {% if sub.SubMenu == i.SubMenu|stringformat:"s" %}
+              <li class="item first">
+                <div class="product-image">
+                  <a href="{% url 'product_detail-app:detail' i.Items %}" title="{{i.Items}}">
+                    <img class="small-image" src="{{ i.image.url }}" alt="{{i.Items}}">
+                  </a>
+                </div>
+                <div class="product-shop">
+                    <h2 class="product-name">
+                      <a href="product_detail.html" title="{{i.Items}}">{{i.Items}}</a>
+                    </h2>
+                    <div class="desc std">
+                      <p>{{i.description}} ...
+                        <a class="link-learn" title="" href="product_detail.html">Learn More</a>
+                      </p>
+                    </div>
+                    <div class="price-box">
+                      {% if i.old_price > "0" %}
+                      <p class="old-price"> <span class="price-label"></span> <span class="price"> {{i.old_price}} </span> </p>
+                      {% endif %}
+                      <p class="special-price"> <span class="price-label"></span> <span class="price"> {{i.special_price}} </span> </p>
+                    </div>
+                    <div class="actions">
+                      <button class="button btn-cart ajx-cart" title="Add to Cart" type="button">
+                        <span>Add to Cart</span>
+                      </button>
+                    </div>
+                </div>
+              </li>
+              {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% endfor %}
+              {% endif %}
+              {% endfor %}
+          </ol>
+            <div class="toolbar">
+              <div class="row">
+                <div class="col-lg-6 col-sm-7 col-md-5">
+                  <div class="pager">
+                    <!-- <div class="pages">
+                      <label>Page:</label>
+                      <ul class="pagination">
+                        <li><a href="#">«</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">»</a></li>
+                      </ul>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        </article>
+      </div>
+      <div class="col-left sidebar col-sm-3 col-xs-12 col-sm-pull-9">
+        <aside class="col-left sidebar">
+          <div class="side-nav-categories">
+            <div class="block-title"> Categories </div>
+            <!--block-title-->
+            <!-- BEGIN BOX-CATEGORY -->
+              <div class="box-content box-category">
+                <ul>
+                  {% for menuitem in menu.menu %}
+                  <li>
+                    {% if product == menuitem.Category %}
+                      <a class="active" href="grid.html">{{menuitem.Category}}</a>
+                      <span class="subDropdown minus"></span>
+                      <ul id= class="level0_415" style="display:block">
+                        {% for sub in subcategory.subcategory %}
+                        {% if menuitem.Category == sub.Category|stringformat:"s" %}
+                        <li id="item-check">
+                          <a href="grid.html"> {{sub.SubMenu}} </a>
+                          <span class="subDropdown plus"></span>
+                          <ul class="level1" style="display:none">
+                            {% for i in item.item %}
+                            {% if sub.SubMenu == i.SubMenu|stringformat:"s" %}
+                            <li>
+                              <a href="grid.html"> {{i.Items}} </a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            <!--end for-each -->
+                          </ul>
+                          <!--level1-->
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                      </ul>
+                    {% else %}
+                      <a href="grid.html">{{menuitem.Category}}</a>
+                      <span class="subDropdown plus"></span>
+                      <ul class="level0_415" style="display:none">
+                        {% for sub in subcategory.subcategory %}
+                        {% if menuitem.Category == sub.Category|stringformat:"s" %}
+                        <li id="item-check">
+                          <a href="grid.html"> {{sub.SubMenu}} </a>
+                          <span class="subDropdown plus"></span>
+                          <ul class="level1" style="display:none">
+                            {% for i in item.item %}
+                            {% if sub.SubMenu == i.SubMenu|stringformat:"s" %}
+                            <li>
+                              <a href="grid.html"> {{i.Items}} </a>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            <!--end for-each -->
+                          </ul>
+                          <!--level1-->
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+      </div>
+      </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

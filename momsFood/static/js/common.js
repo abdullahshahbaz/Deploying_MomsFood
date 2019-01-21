@@ -199,7 +199,7 @@ jQuery(document).ready(function() {
 	jQuery(document).ready(function() {
 		slideEffectAjax();
 	});
-	
+
 });
 /*  UItoTop */
 jQuery.fn.UItoTop = function(options) {

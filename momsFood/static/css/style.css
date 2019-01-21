@@ -52,6 +52,7 @@ Text Domain:  Freshia
 /* */
 
 
+
 /*----------- 1. Body --------------*/
 
 body {
@@ -281,6 +282,13 @@ a.button:hover {
 	padding: 25px;
 	border-bottom: 3px solid #e5e5e5;
 }
+
+.col-main1 {
+	display: block;
+	font-size: 14px;
+	border-bottom: 3px solid #e5e5e5;
+	margin-top: -52px;
+}
 /* 1 Column Layout */
 .col1-layout .header-background-default {
 	margin: 20px;
@@ -294,6 +302,7 @@ a.button:hover {
 	background: inherit;
 	display: inherit;
 }
+
 /* 2 Columns Layout */
 .col2-right-layout ol.opc .col-md-4 {
 	margin-right: 15px;
@@ -311,10 +320,10 @@ a.button:hover {
 .main-container {
 	min-height: 400px;
 	padding: 0px;
-	margin-top: 15px
+	margin-top: 15px;
 }
 
-.main-container.top-space {margin-top:65px}
+.main-container.top-space {}
 
 /*----------- 3. Header --------------*/
 

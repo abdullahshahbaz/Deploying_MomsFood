@@ -1,0 +1,122 @@
+{% extends "masterapp\masterpage.html" %}
+
+{% block up %}
+<div class="main-container top-space col2-right-layout">
+  <div class="main container">
+    <div class="row">
+      <section class="col-sm-9 wow bounceInUp animated">
+        <div class="col-main">
+          <div class="page-title">
+            <h1>Checkout</h1>
+          </div>
+          <ol class="one-page-checkout" id="checkoutSteps">
+            <li id="opc-shipping" class="section allow active">
+              <div class="step-title"> <span class="number">1</span>
+                <h3 class="one_page_heading"> Shipping Information</h3>
+              </div>
+              <div id="checkout-step-shipping" class="step a-item" style=" display: block;">
+                <fieldset class="group-select">
+                  <ul>
+                    <li>
+                      <label for="shipping-address-select">Please provide your shipping information.</label>
+                      <br>
+                    </li>
+                    <li id="shipping-new-address-form" style="display: block;">
+                      <fieldset>
+                        <ul>
+                          <!-- First Name and Last Name li -->
+                          <li>
+                            <div class="customer-name">
+                              <div class="input-box name-firstname">
+                                <label for="shipping:firstname"> First Name <span class="required">*</span> </label>
+                                <br>
+                                {{form.firstname}}
+                              </div>
+                              <div class="input-box name-lastname">
+                                <label for="shipping:lastname"> Last Name <span class="required">*</span> </label>
+                                <br>
+                                {{form.lastname}}
+                              </div>
+                            </div>
+                          </li>
+                          <!-- Address -->
+                          <li>
+                            <label for="shipping:street1">Address <span class="required">*</span></label>
+                            <br>
+                            {{form.address}}
+                          </li>
+                          <!-- Telephone -->
+                          <li>
+                            <div class="input-box">
+                              <label for="shipping:telephone">Telephone <span class="required">*</span></label>
+                              <br>
+                              {{form.telephone}}
+                            </div>
+                          </li>
+                          <!-- checkbox -->
+                          <li>
+                            <input type="checkbox" title="Save in address book" id="shipping:save_in_address_book" class="checkbox">
+                            <label for="shipping:save_in_address_book">Save your information</label>
+                          </li>
+                        </ul>
+                      </fieldset>
+                    </li>
+                  </ul>
+                  <p class="require">
+                    <em class="required">* </em>Required Fields
+                  </p>
+                  <div class="buttons-set1" id="shipping-buttons-container">
+                    <button type="submit" class="button" onclick=saveinfo()>
+                      <span>Continue</span>
+                    </button>
+                  </div>
+                </fieldset>
+              </div>
+            </li>
+            <li id="opc-payment" class="section">
+              <div class="step-title"> <span class="number">2</span>
+                <h3 class="one_page_heading">Payment Method</h3>
+              </div>
+              <div id="checkout-step-payment" class="step a-item" style="display: none;">
+                  <dl id="checkout-payment-method-load">
+                    <dt>
+                      <label for="p_method_checkmo">Cash on Delivery</label>
+                    </dt>
+                  </dl>
+                <div class="buttons-set1" id="payment-buttons-container">
+                  <button type="button" class="button">
+                    <span>Place Order</span>
+                  </button>
+                <div style="clear: both;"></div>
+               </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <aside class="col-right sidebar col-sm-3 wow bounceInUp animated">
+      <div class="block block-progress">
+        <div class="block-title ">Your Checkout</div>
+        <div class="block-content">
+          <dl>
+            <dt class="complete"> SHIPPING INFORMATION <span class="separator">|</span>
+               <a onclick="" href="">Change</a>
+            </dt>
+            <dd class="complete" id="recipt_view">
+            </dd>
+            <dt class="complete"> PAYMENT METHOD</dt>
+            <dd class="complete">
+              <address>
+              Cash on Delivery<br>
+              </address>
+            </dd>
+            <dt> ORDER REVIEW </dt>
+            <dd class="complete" id="bill">
+            </dd>
+          </dl>
+        </div>
+      </div>
+      </aside>
+    </div>
+  </div>
+</div>
+{% endblock %}
