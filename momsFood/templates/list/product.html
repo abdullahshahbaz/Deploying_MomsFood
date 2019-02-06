@@ -54,9 +54,9 @@
                       <p class="special-price"> <span class="price-label"></span> <span class="price"> {{i.special_price}} </span> </p>
                     </div>
                     <div class="actions">
-                      <button class="button btn-cart ajx-cart" title="Add to Cart" type="button">
-                        <span>Add to Cart</span>
-                      </button>
+                      <a id="quickview_function" class="button btn-cart ajx-cart" href="{% url 'quickview-app:quickview' i.Items %}">
+                        Add to Cart
+                      </a>
                     </div>
                 </div>
               </li>

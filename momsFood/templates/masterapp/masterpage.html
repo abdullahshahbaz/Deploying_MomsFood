@@ -17,9 +17,12 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}"/>
     <link rel="stylesheet" href="{% static "css/flexslider.css" %}"/>
     <link rel="stylesheet" href="{% static "css/internal.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/fancybox.css" %}"/>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:700,600,800,400" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i,900" rel="stylesheet">
   </head>
+  {% block quickview %}
+  {% endblock %}
   <body class="cms-index-index cms-home-page">
     <div id="page">
       <header>
@@ -35,7 +38,11 @@
                   <!-- Header Top Links -->
                   <div class="toplinks">
                     <div class="links">
-                      <div class="myaccount"><a title="My Account" href="login.html"><span class="hidden-xs">My Account</span></a> </div>
+                      <div class="myaccount">
+                        <a title="My Account" href="login.html">
+                          <span class="hidden-xs">My Account</span>
+                        </a>
+                      </div>
                       <div class="dropdown block-company-wrapper hidden-xs"> <a role="button" data-toggle="dropdown" data-target="#" class="block-company dropdown-toggle" href="#"> Company <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                           <li role="presentation"><a href="about_us.html"> About Us </a> </li>
@@ -46,7 +53,11 @@
                       </div>
                       <!-- End Header Company -->
 
-                      <div class="login"><a href="login.html"><span class="hidden-xs">Log In</span></a> </div>
+                      <div class="login">
+                        <a href="{% url 'login-app:login' %}">
+                          <span class="hidden-xs">Log In</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
                   <!-- End Header Top Links -->

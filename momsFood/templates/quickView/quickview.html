@@ -1,0 +1,150 @@
+{% extends "masterapp\masterpage.html" %}
+
+{% block quickview %}
+<body class="cms-index-index">
+  <div style="background-color: rgb(119, 119, 119); opacity: 0.7; cursor: pointer; height: 1024px; display: block;" id="fancybox-overlay"></div>
+  <div style="width: 1190px; height: auto; top: 20%; left: 20%; display: block;" id="fancybox-wrap">
+    <div id="fancybox-outer">
+      <div style="border-width: 10px; width: 1170px; height: auto;" id="fancybox-content">
+        <div style="width:auto;height:auto;overflow: auto;position:relative;">
+          <div class="product-view">
+            <div class="product-essential">
+              <div class="product-img-box col-lg-4 col-sm-5 col-xs-12">
+                {% if detail.new_item|stringformat:"s" == "True" %}
+                <div class="new-label new-top-left"> New </div>
+                {% endif %}
+                <div class="product-image">
+                  <div class="product-full">
+                    {% for p in pictures.pictures %}
+                    {% if product == p.product_name|stringformat:"s" and p.product_image_type == "main" %}
+                    <img id="product-zoom" src="{{ p.product_image.url }}" data-zoom-image="{{ p.product_image.url }}" alt="product-image">
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="more-views">
+                    <div class="slider-items-products">
+                      <div id="gallery_01" class="product-flexslider hidden-buttons product-img-thumb">
+                        <div class="slider-items slider-width-col4 block-content owl-carousel owl-theme" style="opacity: 1; display: block;">
+                          <div class="owl-wrapper-outer">
+                            <div class="owl-wrapper" style="width: 1180px; left: 0px; display: block; transform: translate3d(0px, 0px, 0px); transition: all 500ms ease 0s;">
+                              {% for p in pictures.pictures %}
+                              {% if product == p.product_name|stringformat:"s" and p.product_image_type == "images" %}
+                              <div class="owl-item" style="width: 118px;">
+                                <div class="more-views-items">
+                                  <a href="#" data-image="{{ p.product_image.url }}" data-zoom-image="{{ p.product_image.url }}">
+                                    <img id="product-zoom" src="{{ p.product_image.url }}" alt="product-image">
+                                  </a>
+                                </div>
+                              </div>
+                              {% endif %}
+                              {% endfor %}
+                            </div>
+                          </div>
+                          <div class="owl-controls clickable">
+                            <div class="owl-buttons">
+                              <div class="owl-prev">
+                                <a class="flex-prev"></a>
+                              </div>
+                              <div class="owl-next">
+                                <a class="flex-next"></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="product-shop col-lg-8 col-sm-7 col-xs-12">
+                <div class="product-name">
+                  {% for detail in details.details %}
+                  <h1>{{detail.name}}</h1>
+                  {% endfor %}
+                </div>
+                <!-- <div class="ratings">
+                  <div class="rating-box">
+                    <div style="width:60%" class="rating"></div>
+                  </div>
+                  <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
+                </div> -->
+                <div class="price-block">
+                  <div class="price-box">
+                    <p class="special-price">
+                      <span class="price-label">Special Price</span>
+                      {% for item in item_details.item_details %}
+                      <span id="product-price-48" class="price"> PKR {{item.special_price}} </span>
+                      {% endfor %}
+                    </p>
+                    <p class="old-price">
+                      <span class="price-label">Regular Price:</span>
+                      {% for item in item_details.item_details %}
+                      <span class="price"> PKR {{item.old_price}} </span>
+                      {% endfor %}
+                    </p>
+                    <p class="availability in-stock pull-right">
+                      {% for detail in details.details %}
+                      {% if detail.in_stock|stringformat:"s" == "True" %}
+                      <span>In Stock</span>
+                      {% else %}
+                      <span>Out of Stock</span>
+                      {% endif %}
+                      {% endfor %}
+                    </p>
+                  </div>
+                </div>
+                <div class="short-description">
+                  <h2>Quick Overview</h2>
+                  {% for detail in details.details %}
+                  <p>{{detail.quick_review}}</p>
+                  {% endfor %}
+                </div>
+                <div class="add-to-box">
+                  <div class="add-to-cart">
+                    <div class="pull-left">
+                      <div class="custom pull-left">
+                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 0 ) result.value--;return false;" class="reduced items-count" type="button">
+                          <i class="fa fa-minus">&nbsp;</i>
+                        </button>
+                        <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
+                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button">
+                          <i class="fa fa-plus">&nbsp;</i>
+                        </button>
+                      </div>
+                    </div>
+                    {% for item in item_details.item_details %}
+                      <a class="button btn-cart" onclick="addItem('{{item.Items}}','{{item.image.url}}',{{item.special_price}})" href="{% url 'list-app:product' category %}">
+                        Add to Cart
+                      </a>
+                    {% endfor %}
+                  </div>
+                  <!-- <div class="email-addto-box">
+                    <ul class="add-to-links">
+                      <li> <a class="link-wishlist" href="wishlist.html"><span>Add to Wishlist</span></a></li>
+                      <li><span class="separator">|</span> <a class="link-compare" href="compare.html"><span>Add to Compare</span></a></li>
+                    </ul>
+                    <p class="email-friend"><a href="#" class=""><span>Email to a Friend</span></a></p>
+                  </div> -->
+                </div>
+                <div class="social">
+                  <ul class="link">
+                    <li class="fb"><a href="#"></a></li>
+                    <!-- <li class="tw"><a href="#"></a></li>
+                    <li class="googleplus"><a href="#"></a></li>
+                    <li class="rss"><a href="#"></a></li>
+                    <li class="pintrest"><a href="#"></a></li>
+                    <li class="linkedin"><a href="#"></a></li>
+                    <li class="youtube"><a href="#"></a></li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a style="display: inline;" id="fancybox-close" href="{% url 'list-app:product' category %}" ></a>
+    </div>
+  </div>
+</body>
+
+{% endblock %}

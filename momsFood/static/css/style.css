@@ -3195,6 +3195,7 @@ li .list {
 .products-list .product-shop .btn-cart:before {
 	content: "\f07a";
 	font-family: 'FontAwesome';
+	padding-right: 10px;
 }
 .products-list .product-shop button.button span {
 	font-size: 12px;

@@ -1,0 +1,111 @@
+{% extends "masterapp/masterpage.html" %}
+{% load staticfiles %}
+{% block up %}
+<link rel="stylesheet" href="{% static "css/signup.css" %}"/>
+<section class="main-container top-space col1-layout">
+    <div class="main container">
+      <div class="account-login">
+        <div class="page-title">
+          <h2>Create your Account</h2>
+        </div>
+        <div class="container">
+          <div class="account account--fixed">
+            <div class="account-body">
+              <form action="" data-create-account-form="" mthod="post" class="form">
+                {% csrf_token %}
+                  <div class="form-row form-row--half">
+                    <div class="form-field form-field--input form-field--inputText form-field--error" id="FormField_1" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Email Address&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="EmailAddress">
+                      <label class="form-label" for="FormField_1_input">Email Address
+                        <span class="required">*</span>
+                      </label>
+                      {{form.email}}
+                      <span style="display : none;" class="form-inlineMessage">You must enter a valid email.</span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputPassword" id="FormField_2" data-validation="{&quot;type&quot;:&quot;password&quot;,&quot;label&quot;:&quot;Password&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="Password">
+                      <label class="form-label" for="FormField_2_input">Password
+                            <span class="required">*</span>
+                      </label>
+                      {{form.password}}
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputPassword" id="FormField_3" data-validation="{&quot;type&quot;:&quot;password&quot;,&quot;label&quot;:&quot;Confirm Password&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="ConfirmPassword">
+                      <label class="form-label" for="FormField_3_input">Confirm Password
+                              <span class="required">*</span>
+                      </label>
+                      <input type="password" class="form-input" id="FormField_3_input" data-label="Confirm Password" name="FormField[1][3]" value="" autocomplete="off" aria-required="true" data-field-type="ConfirmPassword">
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_4" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;First Name&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="FirstName">
+                      <label class="form-label" for="FormField_4_input">First Name
+                        <span class="required">*</span>
+                      </label>
+                      {{form.firstname}}
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_5" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Last Name&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="LastName">
+                      <label class="form-label" for="FormField_5_input">Last Name
+                          <span class="required">*</span>
+                      </label>
+                      {{form.lastname}}
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_6" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Company Name&quot;,&quot;required&quot;:false,&quot;maxlength&quot;:0}" data-type="CompanyName">
+                      <label class="form-label" for="FormField_6_input">Company Name
+
+                      </label>
+                      {{form.companyname}}
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_7" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Phone Number&quot;,&quot;required&quot;:false,&quot;maxlength&quot;:0}" data-type="Phone">
+                      <label class="form-label" for="FormField_7_input">
+                        Phone Number
+                        <span class="required">*</span>
+                      </label>
+                      {{form.phonenumber}}
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_8" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Address Line 1&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="AddressLine1">
+                      <label class="form-label" for="FormField_8_input">Address Line 1
+                          <span class="required">*</span>
+                      </label>
+                      {{form.address1}}
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_9" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Address Line 2&quot;,&quot;required&quot;:false,&quot;maxlength&quot;:0}" data-type="AddressLine2">
+                      <label class="form-label" for="FormField_9_input">Address Line 2
+
+                      </label>
+                      {{form.address2}}
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_10" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Suburb\/City&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="City">
+                      <label class="form-label" for="FormField_10_input">City
+                          <span class="required">*</span>
+                      </label>
+                      {{form.city}}
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_12" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;State\/Province&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="State">
+                      <label class="form-label" for="FormField_12_input">State/Province
+                          <span class="required">*</span>
+                      </label>
+                      {{form.state_province}}
+                      <span style="display: none;"></span>
+                    </div>
+                    <div class="form-field form-field--input form-field--inputText" id="FormField_13" data-validation="{&quot;type&quot;:&quot;singleline&quot;,&quot;label&quot;:&quot;Zip\/Postcode&quot;,&quot;required&quot;:true,&quot;maxlength&quot;:0}" data-type="Zip">
+                      <label class="form-label" for="FormField_13_input">
+                        Zip/Postcode
+                      </label>
+                      {{form.zipcode}}
+                      <span style="display: none;"></span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-actions">
+                    <input type="submit" class="btn btn-primary btn-lg" value="Create Account">
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

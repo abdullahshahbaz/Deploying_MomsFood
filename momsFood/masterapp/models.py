@@ -27,4 +27,4 @@ class Item(models.Model):
     old_price = models.IntegerField(null=True,default=0)
 
     def __str__(self):
-        return self.Items
+        return "{0}".format(self.Items)

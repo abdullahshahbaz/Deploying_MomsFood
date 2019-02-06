@@ -1,3 +1,15 @@
+//edit url for redirect
+$("#fancybox-close").click(function(){
+  var pageURL = $(location).attr("href");
+});
+
+//deactivate backpage
+jQuery(document).ready(function(){
+    if(document.location.pathname.indexOf("quickview/") >= 0){
+      $('#page').css('display','none');
+    }
+});
+
 //If subcategory does not contain any thing
 jQuery(document).ready(function(){
       if(document.location.pathname.indexOf("list/product") >= 0){

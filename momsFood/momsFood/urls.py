@@ -28,6 +28,9 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('cart/',include('shoppingCart.urls',namespace='shoppingCart-app')),
     path('checkout/',include('checkoutapp.urls',namespace='checkoutapp-app')),
+    path('quickview/',include('quickView.urls',namespace='quickview-app')),
+    path('login/',include('login.urls',namespace='login-app')),
+    path('signup/',include('signup.urls',namespace='signup-app')),
 ]
 
 if settings.DEBUG:
