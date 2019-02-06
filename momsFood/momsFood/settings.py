@@ -26,7 +26,7 @@ SECRET_KEY = 'tbmcsb)her2hzrp**z@_zo$*!ayj$=8!8zj(zivpgqcv9eu=#$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['abdullahnu13.pythonanywhere.com']
 
 
 # Application definition
@@ -130,6 +130,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+STATIC_ROOT = '/home/abdullahnu13/Mom\'sFood/static'
 
 MEDIA_ROOT = (
 BASE_DIR
